@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="column image-container" style="flex: 0.5;">
+                <a><img alt="logo"
+                src="<c:url value='/images/main/logo.png'/>"></a>
+            </div>
+            <div class="column " style="flex: 0.2;"></div>
+            <div class="column " style="flex: 1.7;">
+                <h5>주소</h5>
+                <p class="footer-content">강원 홍천군 영귀미면 수타사로 227-18<br/>수타사 계곡</p>
+            </div>
+            <div class="column" style="flex: 1.5;">
+                <h5>연락처</h5>
+                <p class="footer-content">전화: 02-1234-5678</p>
+                <p class="footer-content">팩스: 02-1234-5679</p>
+            </div>
+            <div class="column" style="flex: 1;">
+                <h5>영업시간</h5>
+                <p class="footer-content">고객센터<br/>09:00 ~ 18:00</p>
+                <p class="footer-content">캠핑장<br/>09:00 ~ 21:00</p>
+            </div>
+            <div class="column" style="flex: 1.5;">
+                <h5>이메일</h5>
+                <p class="footer-content">
+                    <a href="mailto:enumcamping@gmail.com"
+                        class="text-white">enumcamping@gmail.com</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>&copy; 2024 ENUM CAMPING. All rights
+                reserved.</small>
+        </div>
+    </footer>

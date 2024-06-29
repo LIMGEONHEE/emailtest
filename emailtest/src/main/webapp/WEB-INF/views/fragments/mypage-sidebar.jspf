@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<head>
+    <c:url var="sidebarCSS" value="/css/sidebar.css" />
+    <link rel="stylesheet" href="${sidebarCSS}">
+</head>
+
+<aside class="main-sidebar sidebar-dark-primary elevartion-4 sidebar">
+    <div style="height: auto; width: 100%; border-bottom:1px solid black; margin: 5px; text-align: center;">
+    <h3 id="title">마이페이지</h3>
+    </div>
+    <ul class="sidebar-menu">
+        <li id="firstmenu">
+            <a href="">정보수정</a>           
+        </li>
+        <li>
+            <a href="">예약내역</a>
+        </li>
+        <li>
+           <a href="">문의내역</a> 
+        </li>
+        <li>
+            <a href="">회원탈퇴</a>
+        </li>
+    </ul>
+</aside>

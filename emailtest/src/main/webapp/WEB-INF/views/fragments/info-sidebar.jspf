@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<head>
+    <c:url var="sidebarCSS" value="/css/sidebar.css" />
+    <link rel="stylesheet" href="${sidebarCSS}">
+</head>
+
+
+<body>
+    <aside class="sidebar">
+        <h3 id="title">이용안내</h3>
+        <ul class="sidebar-menu">
+            <li id="firstmenu"><a href="infoTime">이용시간 및 요금</a></li>
+            <li><a href="infoRefound">환불규정</a></li>
+            <li><a href="infoBooking">예약방법</a></li>
+            <li><a href="infoRules">이용준수사항</a></li>
+            <li><a href="infoSale">물품판매리스트</a></li>
+            <li><a href="infoRental">물품대여리스트</a></li>
+        </ul>
+    </aside>
+
+</body>
+

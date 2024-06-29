@@ -1,0 +1,165 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+
+<header class="text-white text-center">
+    
+
+    <nav class="navbar navbar-expand-md" id="top">
+        <div class="col-3 d-flex justify-content-center">
+            <div id="weather-info">
+                <p style="margin:0;">현재 날씨: <span id="sky"></span></p>
+                <p style="margin:0;"><span id="rain"></span>기온: <span id="temp"></span>°C</p>
+            </div>
+        </div>
+
+        <div class="col-6 navbar-nav d-flex justify-content-center">
+            <a href="/semiproject/">
+            	<img alt="logo"
+                src="<c:url value='/images/main/logo_horizontal.jpg'/>"
+                style="height: 60px; width: 200px;">
+                
+            </a>
+        </div>
+        
+        <div class="col-3 d-flex justify-content-center">
+            <ul class="navbar-nav ">
+                <c:if test="${not empty signedInUser}">
+                    <%-- 로그인 정보가 세션에 저장된 경우 --%>
+                    <li class="nav-item"><c:url var="myPage"
+                            value="/user/mypage">
+                            <c:param name="userid"
+                                value="${signedInUser}"></c:param>
+                        </c:url> <a class="nav-link" href="${myPage}">마이페이지</a></li>
+                    <li class="nav-item">
+                    <c:url var="signOutPage" value="/user/signout" /> 
+                            <a class="nav-link" href="#" onclick="confirmLogout('${signOutPage}')"><span>${signedInUser}</span>
+                            로그아웃</a>
+                    </li>
+                </c:if>
+
+                <c:if test="${empty signedInUser}">
+                    <li class="nav-item">
+                        <c:url var="signInPage" value="/user/signin" /> 
+                        <a class="nav-link" href="#" onclick="confirmLogin('${signInPage}')">로그인</a></li>
+                    <li class="nav-item"><c:url var="signUpPage"
+                            value="/user/signup" /> <a class="nav-link"
+                        href="${signUpPage}">회원가입</a></li>
+                </c:if>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+    function confirmLogout(signOutPage) {
+        if (confirm("정말 로그아웃 하시겠습니까?")) {
+        	const targetUrl = window.location.href;
+            window.location.href = signOutPage + "?target=" + encodeURIComponent(targetUrl);
+        }
+    }
+    function confirmLogin(signInPage) {
+    	const currentUrl = window.location.href;
+        const targetUrl = encodeURIComponent(currentUrl);
+        window.location.href = signInPage + "?target=" + targetUrl;
+    }
+    </script>
+
+
+</header>
+
+<nav class="navbar navbar-expand-md main">
+    <div class="container-fluid">
+        <!-- 
+            <c:url var="homePage"  value = "/"/>
+            <a class="navbar-brand" href="${homePage}">Home</a>
+             -->
+        <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto" id="mainMenu">
+                <li class="nav-item">
+                <c:url value="/intro/introduce" var="introPage" />
+                <a class="nav-link menu" aria-current="page" href="${introPage}">캠핑장 소개</a>
+                    <ul class="subMenu">
+                        <li>
+                            <c:url value="/intro/introduce" var="introPage1" />
+                            <a class="nav-link" aria-current="page"
+                            href="${introPage1}">장점</a>
+                        </li>
+                        <li>
+                            <c:url value="/intro/facilities" var="introPage2" />
+                            <a class="nav-link" aria-current="page"
+                            href="${introPage2}">편의시설</a>
+                        </li>
+                        <li>
+                            <c:url value="/intro/facilityLayout" var="introPage3" />
+                            <a class="nav-link" aria-current="page"
+                            href="${introPage3}">시설배치도</a>
+                        </li>
+                        <li>
+                            <c:url value="/intro/travel" var="introPage4" />
+                            <a class="nav-link" aria-current="page"
+                            href="${introPage4}">주변볼거리</a>
+                        </li>
+                        <li>
+                            <c:url value="/intro/map" var="introPage5" />
+                            <a class="nav-link" aria-current="page"
+                            href="${introPage5}">지도</a>
+                        </li>
+                    </ul>
+                    </li>
+    
+                    
+                    
+                  <li class="nav-item">
+                   <c:url value="/info/infoTime" var="infoPage" /> 
+                   <a class="nav-link  menu" href="${infoPage}">이용안내</a>
+                    <ul class="subMenu">
+                        <li><c:url value="/info/infoTime" var="infoPage1" />
+                            <a class="nav-link" aria-current="page" href="${infoPage1}">이용시간 및 요금</a></li>
+                        <li><c:url value="/info/infoRefound" var="infoPage2" />
+                            <a class="nav-link" aria-current="page" href="${infoPage2}">환불규정</a></li>
+                        <li><c:url value="/info/infoBooking" var="infoPage3" />
+                            <a class="nav-link" aria-current="page" href="${infoPage3}">예약방법</a></li>
+                        <li><c:url value="/info/infoRules" var="infoPage4" />
+                            <a class="nav-link" aria-current="page" href="${infoPage4}">이용준수사항</a></li>
+                        <li><c:url value="/info/infoSale" var="infoPage5" />
+                            <a class="nav-link" aria-current="page" href="${infoPage5}">물품 판매 리스트</a></li>
+                        <li><c:url value="/info/infoRental" var="infoPage6" />
+                            <a class="nav-link" aria-current="page" href="${infoPage6}">물품 대여 리스트</a></li>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item"><c:url value="/reservation"
+                        var="reservationPage" /> <a
+                    class="nav-link  menu" href="${reservationPage}">예약</a></li>
+                <li class="nav-item"><c:url value="/community/notice/list"
+                        var="communityPage" /> <a
+                    class="nav-link  menu" href="${communityPage}">게시판</a>
+                    <ul class="subMenu">
+                        <li><c:url value="/community/notice/list"
+                                var="communityPage1" /> <a
+                            class="nav-link" aria-current="page"
+                            href="${communityPage1}">공지사항</a></li>
+                        <li><c:url value="/community"
+                                var="communityPage2" /> <a
+                            class="nav-link" aria-current="page"
+                            href="${communityPage2}">일대일문의</a></li>
+                        <li><c:url value="/community"
+                                var="communityPage3" /> <a
+                            class="nav-link" aria-current="page"
+                            href="${communityPage3}">FAQ</a></li>
+                        <li><c:url value="/community"
+                                var="communityPage4" /> <a
+                            class="nav-link" aria-current="page"
+                            href="${communityPage4}">이용후기</a></li>
+                    </ul></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

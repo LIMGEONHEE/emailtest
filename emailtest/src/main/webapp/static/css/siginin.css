@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.login-container {
+    display: flex;
+    justify-content: center; /*수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    height: 100vh; /* 뷰포트 높이 100% */
+}
+
+.fixed-size-form {
+    width: 400px; /* 고정 너비 설정 */
+    margin: 0 auto; /* 수평 중앙 정렬 */
+    padding: 10px;
+}
+
+input.write {
+    border-radius: 5px;
+    border-color: black;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-label {
+    margin-right: 10px; /* label과 input 사이의 간격 조정 */
+    width: 20%;
+    font-size: 12pt;
+}
+
+.write {
+    flex: 1; /* input 요소가 가능한 많은 공간을 차지하도록 */
+}
+
+input.btn-login {
+    border-radius: 5px;
+    border-color: #212529;
+    background-color: #212529;
+    color: white;
+    border-right: 2px solid
+}
+
+input.btn-login:hover {
+    background-color: #333; /* hover 상태에서 약간 밝은 색상으로 변경 */
+    border-color: lightgray;
+    color: red;
+}
+
+a.signup {
+    border-radius: 5px;
+    border-color: light-gray;
+    background-color: #212529;
+    color: white;
+}
+
+a.signup:hover  {
+    background-color: #333; /* hover 상태에서 약간 밝은 색상으로 변경 */
+    border-color: lightgray;
+    color: red;
+}
+
+.no-border {
+    border-width: 0;
+}
+
+.right-border {
+    border-width: 0 0 1px;
+    border-color: black;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}

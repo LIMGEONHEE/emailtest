@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<head>
+    <c:url var="sidebarCSS" value="/css/sidebar.css" />
+    <link rel="stylesheet" href="${sidebarCSS}">
+</head>
+
+<aside class="sidebar">
+    <div style="height: auto; width: 100%; border-bottom:1px solid black; margin: 5px; text-align: center;">
+    <h3 id="title">커뮤니티</h3>
+    </div>
+    <ul class="sidebar-menu">
+        <li id="firstmenu">
+            <a href="">공지사항</a>           
+        </li>
+        <li>
+            <a href="">Q&A</a>
+        </li>
+        <li>
+           <a href="">FAQ</a> 
+        </li>
+        <li>
+            <a href="">이용후기</a>
+        </li>
+    </ul>
+</aside>

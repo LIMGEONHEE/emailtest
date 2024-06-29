@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.semiproject.repository.UserDao">
+
+    <!-- 아이디 중복 체크 -->
+    <select id="selectByUserid" resultType="User">
+        select * from users where user_id = #{userId}
+    </select>
+    
+    <!-- 회원 가입 -->
+    <insert id="insert">
+        insert into users (user_id, user_password, user_name, user_phone, user_email)
+        values (#{userId}, #{userPassword}, #{userName}, #{userPhone}, #{userEmail})
+    </insert>
+    
+    <!-- 로그인 -->
+    <select id="selectByUseridAndPassword" resultType="User">
+        select * from users where user_id = #{userId} and user_password = #{userPassword}
+    </select>
+    
+    <!-- 이메일 중복 체크 -->
+    <select id="selectByUserEmail" resultType="User">
+        select * from users where user_email = #{userEmail}
+    </select>
+
+
+</mapper>
